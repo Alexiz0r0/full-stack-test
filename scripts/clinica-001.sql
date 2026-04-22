@@ -11,7 +11,7 @@ END;
 
 -- 1. Tabla PACIENTE
 CREATE TABLE paciente (
-    id_paciente       NUMBER,
+    id_paciente       VARCHAR2(36),
     nombre            VARCHAR2(100)        NOT NULL,
     fecha_nacimiento  DATE                 NOT NULL,
     sexo              CHAR(1),
@@ -21,7 +21,7 @@ CREATE TABLE paciente (
 
 -- 2. Tabla HISTORIA_CLINICA (Relación 1:1)
 CREATE TABLE historia_clinica (
-    id_paciente        NUMBER,
+    id_paciente        VARCHAR2(36),
     fecha_apertura     DATE                 NOT NULL,
     observaciones      CLOB,
     CONSTRAINT pk_historia_clinica PRIMARY KEY (id_paciente),
@@ -31,7 +31,7 @@ CREATE TABLE historia_clinica (
 
 -- 3. Tabla MEDICO
 CREATE TABLE medico (
-    id_medico          NUMBER,
+    id_medico          VARCHAR2(36),
     nombre             VARCHAR2(100)        NOT NULL,
     especialidad       VARCHAR2(100)        NOT NULL,
     num_colegiatura    VARCHAR2(20),
@@ -41,11 +41,11 @@ CREATE TABLE medico (
 
 -- 4. Tabla CITA (Relación 1:N con Paciente y Médico)
 CREATE TABLE cita (
-    id_cita            NUMBER,
+    id_cita            VARCHAR2(36),
     fecha_hora         TIMESTAMP            NOT NULL,
     motivo             VARCHAR2(200),
-    id_paciente        NUMBER               NOT NULL,
-    id_medico          NUMBER               NOT NULL,
+    id_paciente        VARCHAR2(36)               NOT NULL,
+    id_medico          VARCHAR2(36)               NOT NULL,
     CONSTRAINT pk_cita PRIMARY KEY (id_cita),
     -- Al borrar el paciente, se borran sus citas
     CONSTRAINT fk_cita_paciente FOREIGN KEY (id_paciente) 

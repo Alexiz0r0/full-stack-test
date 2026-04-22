@@ -6,18 +6,18 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { Medico } from '../../interfaces/medico.interface';
+import { Paciente } from '../../interfaces/paciente.interface';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal';
 
 @Component({
-  selector: 'medico-list',
+  selector: 'paciente-list',
   standalone: true,
   imports: [ConfirmModalComponent],
-  templateUrl: './medico-list.html',
+  templateUrl: './paciente-list.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MedicoListComponent {
-  medicos = input.required<Medico[]>();
+export class PacienteListComponent {
+  medicos = input.required<Paciente[]>();
 
   errorMessage = input<null | string>(null);
   isLoading = input<boolean>(false);
@@ -27,12 +27,12 @@ export class MedicoListComponent {
   // #modalBorrar es la referencia que pondremos en el HTML
   modalBorrar = viewChild<ConfirmModalComponent>('modalEliminar');
 
-  medico = signal<Medico | null>(null);
-  confirmarEliminacion = output<Medico>();
+  medico = signal<Paciente | null>(null);
+  confirmarEliminacion = output<Paciente>();
 
-  medicoSeleccionado = output<Medico>();
+  medicoSeleccionado = output<Paciente>();
 
-  abrirModal(medico: Medico) {
+  abrirModal(medico: Paciente) {
     this.medico.set(medico);
     // LLAMADA AL MODAL:
     // Al ser un Signal, usamos () para obtener el valor y luego llamamos al método
@@ -47,7 +47,7 @@ export class MedicoListComponent {
     this.medico.set(null);
   }
 
-  cargarEdicion(medico: Medico) {
+  cargarEdicion(medico: Paciente) {
     this.medicoSeleccionado.emit(medico);
   }
 }

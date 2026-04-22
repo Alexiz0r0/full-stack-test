@@ -1,6 +1,15 @@
+@if (showTable()) {
 <div class="my-8 flex flex-raw justify-around content-center w-full">
-  <app-search-input placeholder="Buscar nombre" (value)="onSearch($event)" />
-  <button class="btn btn-circle btn-secondary">
+  <app-search-input
+    placeholder="Buscar nombre"
+    [(query)]="searchTerm"
+    (value)="onSearch($event)"
+  />
+  <button
+    type="button"
+    class="btn btn-circle btn-secondary"
+    (click)="crearBtn()"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -21,6 +30,14 @@
   [isEmpty]="medicos().length === 0"
   [isLoading]="isLoading()"
   (confirmarEliminacion)="confirmarEliminacion($event)"
+  (medicoSeleccionado)="cargarEdicion($event)"
 />
+} @else {
+<app-medico-form
+  (onCancelar)="cancelar($event)"
+  [data]="medicoSeleccionado()"
+  (onGuardar)="guardar($event)"
+/>
+}
 
 <app-toast [message]="toastMessage()" [type]="toastType()" />

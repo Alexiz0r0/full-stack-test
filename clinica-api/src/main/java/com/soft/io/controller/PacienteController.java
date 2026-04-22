@@ -16,45 +16,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soft.io.model.ApiCustomResponse;
-import com.soft.io.model.MedicoDTO;
-import com.soft.io.service.MedicoService;
+import com.soft.io.model.PacienteDTO;
+import com.soft.io.service.PacienteService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/medicos")
+@RequestMapping("/api/pacientes")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
-public class MedicoController {
+public class PacienteController {
 
-	private final MedicoService medicoService;
+	private final PacienteService pacienteService;
 
 	@GetMapping("/buscar")
-	public List<MedicoDTO> buscarMedicos(@RequestParam(required = false) String nombre) {
-		return medicoService.listarMedico(nombre);
+	public List<PacienteDTO> buscarMedicos(@RequestParam(required = false) String nombre) {
+		return pacienteService.listarPaciente(nombre);
 	}
 
 	@PostMapping
-	public ResponseEntity<ApiCustomResponse> crear(@RequestBody MedicoDTO medico) {
-		medicoService.guardarMedico(medico);
+	public ResponseEntity<ApiCustomResponse> crear(@RequestBody PacienteDTO medico) {
+		pacienteService.guardarPaciente(medico);
 		return new ResponseEntity<>(
-				ApiCustomResponse.builder().message("Médico registrado con éxito").success(true).build(),
+				ApiCustomResponse.builder().message("Paciente registrado con éxito").success(true).build(),
 				HttpStatus.CREATED);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<ApiCustomResponse> actualizar(@PathVariable String id, @RequestBody MedicoDTO medico) {
-		medico.setIdMedico(id);
-		medicoService.actualizarMedico(medico);
+	public ResponseEntity<ApiCustomResponse> actualizar(@PathVariable String id, @RequestBody PacienteDTO medico) {
+		medico.setIdPaciente(id);
+		pacienteService.actualizarPaciente(medico);
 		return ResponseEntity
-				.ok(ApiCustomResponse.builder().message("Médico actualizado correctamente").success(true).build());
+				.ok(ApiCustomResponse.builder().message("Paciente actualizado correctamente").success(true).build());
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ApiCustomResponse> eliminar(@PathVariable String id) {
-		medicoService.borrarMedico(id);
+		pacienteService.borrarPaciente(id);
 		return ResponseEntity
-				.ok(ApiCustomResponse.builder().message("Médico eliminado correctamente").success(true).build());
+				.ok(ApiCustomResponse.builder().message("Paciente eliminado correctamente").success(true).build());
 	}
 
 }

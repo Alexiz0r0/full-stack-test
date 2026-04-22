@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MedicoDTO {
 	
-	private Long idMedico;
+	private String idMedico;
     private String nombre;
     private String especialidad;
     private String numColegiatura;

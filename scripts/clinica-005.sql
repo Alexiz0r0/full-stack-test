@@ -2,7 +2,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_medico AS
 
     -- INSERT
     PROCEDURE sp_insertar(
-        p_id_medico       IN NUMBER,
+        p_id_medico       IN VARCHAR2,
         p_nombre          IN VARCHAR2,
         p_especialidad    IN VARCHAR2,
         p_num_colegiatura IN VARCHAR2
@@ -19,7 +19,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_medico AS
 
     -- UPDATE
     PROCEDURE sp_actualizar(
-        p_id_medico       IN NUMBER,
+        p_id_medico       IN VARCHAR2,
         p_nombre          IN VARCHAR2,
         p_especialidad    IN VARCHAR2,
         p_num_colegiatura IN VARCHAR2
@@ -38,7 +38,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_medico AS
     END sp_actualizar;
 
     -- DELETE
-    PROCEDURE sp_eliminar(p_id_medico IN NUMBER) AS
+    PROCEDURE sp_eliminar(p_id_medico IN VARCHAR2) AS
     BEGIN
         DELETE FROM medico WHERE id_medico = p_id_medico;
         
@@ -50,7 +50,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_medico AS
 
     -- FIND BY ID
     PROCEDURE sp_buscar_id(
-        p_id_medico IN NUMBER,
+        p_id_medico IN VARCHAR2,
         p_registro  OUT SYS_REFCURSOR
     ) AS
     BEGIN

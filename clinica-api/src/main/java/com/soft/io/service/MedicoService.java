@@ -28,7 +28,7 @@ public class MedicoService {
 		medicoRepository.actualizar(medico);
 	}
 
-	public void borrarMedico(Long id) {
+	public void borrarMedico(String id) {
 		medicoRepository.eliminar(id);
 	}
 

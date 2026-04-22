@@ -1,0 +1,81 @@
+<div class="overflow-hidden flex items-center justify-center">
+  <div class="lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
+    <form [formGroup]="form" (ngSubmit)="enviar()" class="p-12">
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">ID PACIENTE</span></div>
+          <input
+            type="text"
+            formControlName="idPaciente"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('idPaciente')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">NOMBRE</span></div>
+          <input
+            type="text"
+            formControlName="nombre"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('nombre')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">FECHA NACIMIENTO</span>
+          </div>
+          <input
+            type="date"
+            formControlName="fechaNacimiento"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('fechaNacimiento')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">SEXO</span>
+          </div>
+          <select
+            formControlName="sexo"
+            class="select select-bordered select-primary w-full"
+            [class.select-error]="isInvalid('sexo')"
+          >
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">OBSERVACIONES</span>
+          </div>
+          <input
+            type="text"
+            formControlName="observaciones"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('observaciones')"
+          />
+        </label>
+      </div>
+
+      <div class="flex flex-raw justify-between py-6">
+        <button type="submit" class="btn btn-accent">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelar()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

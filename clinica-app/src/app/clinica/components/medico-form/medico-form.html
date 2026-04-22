@@ -1,0 +1,62 @@
+<div class="overflow-hidden flex items-center justify-center">
+  <div class="lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
+    <form [formGroup]="form" (ngSubmit)="enviar()" class="p-12">
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">ID MEDICO</span></div>
+          <input
+            type="text"
+            formControlName="idMedico"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('idMedico')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">NOMBRE</span></div>
+          <input
+            type="text"
+            formControlName="nombre"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('nombre')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">ESPECIALIDAD</span></div>
+          <input
+            type="text"
+            formControlName="especialidad"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('especialidad')"
+          />
+        </label>
+      </div>
+
+      <div class="flex items-center mb-2">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">NUM. COLEGIATURA</span>
+          </div>
+          <input
+            type="text"
+            formControlName="numColegiatura"
+            class="input input-bordered input-primary w-full"
+            [class.input-error]="isInvalid('numColegiatura')"
+          />
+        </label>
+      </div>
+
+      <div class="flex flex-raw justify-between py-6">
+        <button type="submit" class="btn btn-accent">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelar()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

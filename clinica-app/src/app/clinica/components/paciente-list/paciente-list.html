@@ -4,8 +4,10 @@
       <tr>
         <th>Id</th>
         <th>Nombre</th>
-        <th>Especialidad</th>
-        <th>Num. Colegiatura</th>
+        <th>Fecha Nacimiento</th>
+        <th>Sexo</th>
+        <th>FechaApertura</th>
+        <th>Observaciones</th>
         <th>Acción</th>
       </tr>
     </thead>
@@ -28,12 +30,14 @@
       </tr>
       }
       <!-- -->
-      @for (medico of medicos(); track medico.idMedico) {
+      @for (medico of medicos(); track medico.idPaciente) {
       <tr>
-        <td>{{medico.idMedico}}</td>
+        <td>{{medico.idPaciente}}</td>
         <td>{{medico.nombre}}</td>
-        <td>{{medico.especialidad}}</td>
-        <td>{{medico.numColegiatura}}</td>
+        <td>{{medico.fechaNacimiento}}</td>
+        <td>{{medico.sexo}}</td>
+        <td>{{medico.fechaApertura}}</td>
+        <td>{{medico.observaciones}}</td>
         <td class="flex flex-row gap-4">
           <button
             class="btn btn-circle btn-warning"

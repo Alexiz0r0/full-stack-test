@@ -11,7 +11,7 @@ END;
 
 -- Tabla PACIENTE
 CREATE TABLE paciente (
-    id_paciente       NUMBER,
+    id_paciente       VARCHAR2(36),
     nombre             VARCHAR2(100)        NOT NULL,
     fecha_nacimiento   DATE                 NOT NULL,
     sexo               CHAR(1),
@@ -20,7 +20,7 @@ CREATE TABLE paciente (
 
 -- Tabla HISTORIA_CLINICA
 CREATE TABLE historia_clinica (
-    id_paciente        NUMBER,
+    id_paciente        VARCHAR2(36),
     fecha_apertura     DATE                 NOT NULL,
     observaciones      CLOB,
     -- Completar PK y FK
@@ -28,7 +28,7 @@ CREATE TABLE historia_clinica (
 
 -- Tabla MEDICO
 CREATE TABLE medico (
-    id_medico          NUMBER,
+    id_medico          VARCHAR2(36),
     nombre             VARCHAR2(100)        NOT NULL,
     especialidad       VARCHAR2(100)        NOT NULL,
     num_colegiatura    VARCHAR2(20),
@@ -37,10 +37,10 @@ CREATE TABLE medico (
 
 -- Tabla CITA
 CREATE TABLE cita (
-    id_cita            NUMBER,
+    id_cita            VARCHAR2(36),
     fecha_hora         TIMESTAMP            NOT NULL,
     motivo             VARCHAR2(200),
-    id_paciente        NUMBER               NOT NULL,
-    id_medico          NUMBER               NOT NULL,
+    id_paciente        VARCHAR2(36)               NOT NULL,
+    id_medico          VARCHAR2(36)               NOT NULL,
     -- Completar PK y FKs
 );

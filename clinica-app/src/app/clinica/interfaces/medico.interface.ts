@@ -1,5 +1,5 @@
 export interface Medico {
-  idMedico:       number;
+  idMedico:       string;
   nombre:         string;
   especialidad:   string;
   numColegiatura: string;
