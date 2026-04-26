@@ -48,6 +48,6 @@ CREATE TABLE cita (
     motivo             VARCHAR2(200),
     id_paciente        VARCHAR2(36)               NOT NULL,
     id_medico          VARCHAR2(36)               NOT NULL,
-    
+    -- Completar PK y FKs
     
 );
