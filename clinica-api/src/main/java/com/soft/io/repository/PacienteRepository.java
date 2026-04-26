@@ -56,17 +56,8 @@ public class PacienteRepository {
 	public void insertar(PacienteDTO dto) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_registrar_completo");
 
-		query.registerStoredProcedureParameter("p_id_paciente", String.class, ParameterMode.IN);
-		query.registerStoredProcedureParameter("p_nombre", String.class, ParameterMode.IN);
-		query.registerStoredProcedureParameter("p_fecha_nacimiento", LocalDate.class, ParameterMode.IN);
-		query.registerStoredProcedureParameter("p_sexo", String.class, ParameterMode.IN);
-		query.registerStoredProcedureParameter("p_observaciones", String.class, ParameterMode.IN);
-
-		query.setParameter("p_id_paciente", dto.getIdPaciente());
-		query.setParameter("p_nombre", dto.getNombre());
-		query.setParameter("p_fecha_nacimiento", dto.getFechaNacimiento());
-		query.setParameter("p_sexo", dto.getSexo());
-		query.setParameter("p_observaciones", dto.getObservaciones());
+		// Completar:
+		
 		
 		query.execute();
 	}
@@ -77,17 +68,7 @@ public class PacienteRepository {
 	public void actualizar(PacienteDTO dto) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_actualizar");
 
-		query.registerStoredProcedureParameter("p_id_paciente", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_nombre", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_fecha_nacimiento", LocalDate.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_sexo", String.class, ParameterMode.IN);
-        query.registerStoredProcedureParameter("p_observaciones", String.class, ParameterMode.IN);
-
-        query.setParameter("p_id_paciente", dto.getIdPaciente());
-        query.setParameter("p_nombre", dto.getNombre());
-        query.setParameter("p_fecha_nacimiento", dto.getFechaNacimiento());
-        query.setParameter("p_sexo", dto.getSexo());
-        query.setParameter("p_observaciones", dto.getObservaciones());
+		// Completar:
 
         query.execute();
 	}
@@ -97,8 +78,10 @@ public class PacienteRepository {
 	 */
 	public void eliminar(String id) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_eliminar");
-        query.registerStoredProcedureParameter("p_id_paciente", String.class, ParameterMode.IN);
-        query.setParameter("p_id_paciente", id);
+        
+		// Completar:
+		
+		
         query.execute();
 	}
 

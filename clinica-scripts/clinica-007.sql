@@ -11,13 +11,12 @@ create or replace NONEDITIONABLE PACKAGE BODY pkg_paciente AS
         v_nuevo_id VARCHAR2(36);
     BEGIN
         -- 1. Insertar el Paciente
-        INSERT INTO paciente (id_paciente, nombre, fecha_nacimiento, sexo)
-        VALUES (p_id_paciente, p_nombre, p_fecha_nacimiento, p_sexo)
-        RETURNING id_paciente INTO v_nuevo_id;
+        
+
 
         -- 2. Insertar la Historia Clínica vinculada (Regla 1:1)
-        INSERT INTO historia_clinica (id_paciente, fecha_apertura, observaciones)
-        VALUES (v_nuevo_id, SYSDATE, p_observaciones);
+        
+
 
     EXCEPTION
         WHEN OTHERS THEN
@@ -35,20 +34,16 @@ create or replace NONEDITIONABLE PACKAGE BODY pkg_paciente AS
     ) AS
     BEGIN
         -- 1. Actualizar datos del paciente
-        UPDATE paciente
-        SET nombre = p_nombre,
-            fecha_nacimiento = p_fecha_nacimiento,
-            sexo = p_sexo
-        WHERE id_paciente = p_id_paciente;
+        
+
 
         IF SQL%NOTFOUND THEN
             RAISE_APPLICATION_ERROR(-20011, 'Paciente no encontrado.');
         END IF;
         
         -- 2. Actualizar las observaciones en la historia clínica
-        UPDATE historia_clinica
-        SET observaciones = p_observaciones
-        WHERE id_paciente = p_id_paciente;
+        
+
         
         EXCEPTION
         WHEN OTHERS THEN
@@ -59,7 +54,7 @@ create or replace NONEDITIONABLE PACKAGE BODY pkg_paciente AS
     PROCEDURE sp_eliminar(p_id_paciente IN VARCHAR2) AS
     BEGIN
         -- 1. Borrar datos del paciente
-        DELETE FROM paciente WHERE id_paciente = p_id_paciente;
+        
 
         IF SQL%NOTFOUND THEN
             RAISE_APPLICATION_ERROR(-20012, 'No se pudo eliminar: ID inexistente.');

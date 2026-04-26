@@ -16,8 +16,8 @@ CREATE TABLE paciente (
     fecha_nacimiento   DATE                 NOT NULL,
     sexo               CHAR(1),
     -- Completar PK
-    CONSTRAINT pk_paciente PRIMARY KEY (id_paciente),
-    CONSTRAINT chk_sexo CHECK (sexo IN ('M', 'F'))
+    
+
 );
 
 -- Tabla HISTORIA_CLINICA
@@ -26,8 +26,8 @@ CREATE TABLE historia_clinica (
     fecha_apertura     DATE                 NOT NULL,
     observaciones      CLOB,
     -- Completar PK y FK
-    CONSTRAINT pk_historia_clinica PRIMARY KEY (id_paciente),
-    CONSTRAINT fk_historia_paciente FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente) ON DELETE CASCADE
+    
+
 );
 
 -- Tabla MEDICO
@@ -37,8 +37,8 @@ CREATE TABLE medico (
     especialidad       VARCHAR2(100)        NOT NULL,
     num_colegiatura    VARCHAR2(20),
     -- Completar PK y restricción UNIQUE en num_colegiatura
-    CONSTRAINT pk_medico PRIMARY KEY (id_medico),
-    CONSTRAINT uq_num_colegiatura UNIQUE (num_colegiatura)
+    
+
 );
 
 -- Tabla CITA
@@ -48,10 +48,6 @@ CREATE TABLE cita (
     motivo             VARCHAR2(200),
     id_paciente        VARCHAR2(36)               NOT NULL,
     id_medico          VARCHAR2(36)               NOT NULL,
-    -- Completar PK y FKs
-    CONSTRAINT pk_cita PRIMARY KEY (id_cita),
-    -- Al borrar el paciente, se borran sus citas
-    CONSTRAINT fk_cita_paciente FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente) ON DELETE CASCADE,
-    -- Al borrar el médico, se borran sus citas
-    CONSTRAINT fk_cita_medico FOREIGN KEY (id_medico) REFERENCES medico(id_medico) ON DELETE CASCADE
+    
+    
 );

@@ -30,7 +30,7 @@ Implementar el modelo usando Oracle Database 19c.
 ## Entregables
 
 - Script DDL completo de creación de tablas.
-- Explicación breve de cómo se implementó la relación 1:1 entre PACIENTE e HISTORIA_CLINICA.
+
 - Al menos 2 consultas SQL que utilicen JOIN.
 
 Importante: no se debe modificar ni agregar nuevas entidades.

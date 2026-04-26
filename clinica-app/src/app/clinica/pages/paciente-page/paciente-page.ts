@@ -67,26 +67,8 @@ export class PacientePageComponent {
   }
 
   confirmarEliminacion(medico: Paciente) {
-    this.isLoading.set(true);
-    this.isError.set(null);
-    this.pacienteService.eliminar(medico.idPaciente).subscribe({
-      next: (response) => {
-        this.isLoading.set(false);
-        // 1. Refrescamos la lista desde el servidor para asegurar sincronía
-        this.onSearch(this.searchTerm());
-        // 2. Configurar y mostrar Toast
-        this.toastMessage.set(response.message); // El mensaje que viene del Back
-        this.toastType.set('alert-success');
-        this.toast()?.show();
-      },
-      error: () => {
-        this.isLoading.set(false);
-        this.isError.set('Ocurrió un error');
-        this.toastMessage.set('Error al eliminar el registro');
-        this.toastType.set('alert-error');
-        this.toast()?.show();
-      },
-    });
+    console.log("Completar Eliminar");
+    // Completar:
   }
 
   cargarEdicion(paciente: Paciente) {
@@ -95,33 +77,8 @@ export class PacientePageComponent {
   }
 
   guardar(datos: any) {
-    const operacion = this.pacienteSeleccionado()
-      ? this.pacienteService.actualizar(
-          this.pacienteSeleccionado()!.idPaciente,
-          datos,
-        )
-      : this.pacienteService.crear(datos);
-
-    operacion.subscribe({
-      next: (res) => {
-        this.toastMessage.set(res.message);
-        this.toastType.set('alert-success');
-        this.toast()?.show();
-
-        this.limpiar();
-        this.showTable.set(true);
-
-        // REFRESCAR LISTA
-        this.onSearch(this.searchTerm());
-      },
-      error: (err) => {
-        this.toastMessage.set('Error en la operación');
-        this.toastType.set('alert-error');
-        this.toast()?.show();
-      },
-    });
-
-    this.limpiar();
+    console.log("Completar Crear && Actualizar");
+    // Completar:
   }
 
   limpiar() {
