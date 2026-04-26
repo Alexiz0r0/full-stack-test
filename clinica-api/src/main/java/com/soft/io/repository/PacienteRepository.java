@@ -53,7 +53,6 @@ public class PacienteRepository {
 	/**
 	 * Inserta un paciente usando el procedimiento del paquete.
 	 */
-	@Transactional
 	public void insertar(PacienteDTO dto) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_registrar_completo");
 
@@ -75,7 +74,6 @@ public class PacienteRepository {
 	/**
 	 * Actualiza un paciente existente.
 	 */
-	@Transactional
 	public void actualizar(PacienteDTO dto) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_actualizar");
 
@@ -97,7 +95,6 @@ public class PacienteRepository {
 	/**
 	 * Elimina un paciente por su ID.
 	 */
-	@Transactional
 	public void eliminar(String id) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_paciente.sp_eliminar");
         query.registerStoredProcedureParameter("p_id_paciente", String.class, ParameterMode.IN);

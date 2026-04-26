@@ -44,7 +44,6 @@ public class MedicoRepository {
 	/**
 	 * Inserta un médico usando el procedimiento del paquete.
 	 */
-	@Transactional
 	public void insertar(MedicoDTO medico) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_medico.sp_insertar");
 
@@ -64,7 +63,6 @@ public class MedicoRepository {
 	/**
 	 * Actualiza un médico existente.
 	 */
-	@Transactional
 	public void actualizar(MedicoDTO medico) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_medico.sp_actualizar");
 
@@ -84,7 +82,6 @@ public class MedicoRepository {
 	/**
 	 * Elimina un médico por su ID.
 	 */
-	@Transactional
 	public void eliminar(String id) {
 		StoredProcedureQuery query = entityManager.createStoredProcedureQuery("pkg_medico.sp_eliminar");
 
